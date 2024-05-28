@@ -138,26 +138,26 @@ if __name__ == "__main__":
         print("Matrix 3: {} x {}".format(matrix3.num_rows, matrix3.num_cols))
 
         # Perform addition, subtraction, and multiplication if dimensions are correct
-        if matrix1.num_rows == matrix2.num_rows and matrix1.num_cols == matrix2.num_cols:
+        try:
             result_add = matrix1.add(matrix2)
             print("Addition result:")
             print(result_add.matrix)  # Example of printing the internal representation
-        else:
-            print("Matrices dimensions do not match for addition")
+        except ValueError as e:
+            print(e)
 
-        if matrix1.num_rows == matrix2.num_rows and matrix1.num_cols == matrix2.num_cols:
+        try:
             result_subtract = matrix1.subtract(matrix2)
             print("Subtraction result:")
             print(result_subtract.matrix)  # Example of printing the internal representation
-        else:
-            print("Matrices dimensions do not match for subtraction")
+        except ValueError as e:
+            print(e)
 
-        if matrix1.num_cols == matrix3.num_rows:
+        try:
             result_multiply = matrix1.multiply(matrix3)
             print("Multiplication result:")
             print(result_multiply.matrix)  # Example of printing the internal representation
-        else:
-            print("Matrices dimensions do not match for multiplication")
+        except ValueError as e:
+            print(e)
 
     except IOError as e:
         print(e)
